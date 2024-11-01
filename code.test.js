@@ -1,4 +1,4 @@
-const { are_isomorphic } = require('code.js'); 
+const { are_isomorphic } = require('./code.js'); 
 //Need Pentagon, Star ,Empty ,Square, Hourglass, Pentacross, Complex, G, and H 
 const pentagon = [
     [0,1,2,3,4],
