@@ -36,7 +36,7 @@ function UGATAM(graph) {
   const V = graph[0]; 
   const E = graph[1]; 
   //Initialize adjacency matrix with zeros 
-  const adjMAtrix = Array.from({ length: V.length }, () => Array(V.length).fill(0)); 
+  const adjMatrix = Array.from({ length: V.length }, () => Array(V.length).fill(0)); 
   
   // Fill in edges (undirected) in the adjacency matrix 
   E.forEach(([u,v]) => {
@@ -61,7 +61,7 @@ function getDS(graph) {
 }
 
 // Function to check if two matrices are equal
-function matrixEqulaity(m1, m2) { 
+function matrixEquality(m1, m2) { 
   if (m1.length !== m2.length) return false; //Check if dimensions are the same 
   // Check each element for equality
   for (let i = 0; i <m1.length; i++) { 
