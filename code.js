@@ -73,10 +73,10 @@ function UGATAM(graph) {
     adjMatrix[V.indexOf(v)][V.indexOf(u)] = 1;
   });
   return adjMatrix; 
-} 
-
 console.log('Testing permuation', graph[0]);
 console.log('Adjacency matrix for permutation:', UGATAM(graph));
+} 
+
 // Function to get a sorted degree sequence for a graph 
 // getDS = Get Degree Sequence
 function getDS(graph) {
