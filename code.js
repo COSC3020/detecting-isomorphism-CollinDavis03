@@ -20,8 +20,10 @@ function are_isomorphic(graph1, graph2) {
 }
 
 function permuteMatrix(MATRIX, graph, lo) {
+    console.log('Current permuation being tested:', graph[0]);
     // Check if the current permutation of graph2 matches the adjacency matrix of graph1
     if (matrixEquality(MATRIX, UGATAM(graph))) {
+        console.log('Match found for permuation:', graph[0]); 
         return true;
     }
 
