@@ -4,33 +4,39 @@ const path = require('path');
 const { start } = require('repl');
 
 eval(fs.readFileSync('code.js')+'');
-//Need Pentagon, Star ,Empty ,Square, Hourglass, Pentacross, Complex, G, and H 
+//Need Pentagon, Star, Empty, Square, Hourglass, Pentacross, Complex, G, and H 
 const pentagon = [
     [0,1,2,3,4],
-    [[0,1],[1,2],[2,3],[3,4],[4,0]]
+    [[0,1], [1,2], [2,3], [3,4], [4,0]]
     ];
 
 const star = [
     [0,1,2,3,4], 
-    [[0,2],[2,4],[4,1],[1,3],[3,0]]
+    [[0,2], [2,4], [4,1], [1,3], [3,0]]
     ];
 
-const empty = [[],[]]; 
-const line = [[0,1,2],[[0,1],[1,2]]]; 
+const empty = [
+    [],[]
+];
+
+const line = [
+    [0,1,2], 
+    [[0,1], [1,2]]
+]; 
 
 const square = [ 
     [0,1,2,3,4], 
-    [[0,1],[1,2],[2,3],[3,0]]
+    [[0,1], [1,2], [2,3], [3,0]]
     ];
 
 const hourglass = [ 
     [0,1,2,3,4],
-    [[0,2],[2,3],[3,1],[1,0]]
+    [[0,2], [2,3], [3,1], [1,0]]
     ];
 
 const pentacross = [
     [0,1,2,3,4], 
-    [[0,1],[0,3],[1,2],[2,0],[2,3],[0,4]]
+    [[0,1], [0,3], [1,2], [2,0], [2,3], [0,4]]
     ];
 
 const complex = [
@@ -54,11 +60,11 @@ try {
     //non-isomorphic
     if (are_isomorphic(empty, line)) throw new Error('Test failed: empty & line');
     if (are_isomorphic(pentagon, line)) throw new Error('Test failed: pentagon & line');
-    //ismorphic
+    //isomorphic
     if (!are_isomorphic(square, hourglass)) throw new Error('Test failed: square & hourglass');
-    //non-simorphic
+    //non-isomorphic
     if (are_isomorphic(square, pentagon)) throw new Error('Test failed: square & pentagon');
-    if (are_isomorphic(pentacross, complex)) throw new Error('Test failed: pentaCross & complex');
+    if (are_isomorphic(pentacross, complex)) throw new Error('Test failed: pentacross & complex');
     //Larger Graph Test 
     if (!are_isomorphic(G, H)) throw new Error('Test failed: G & H');
     
