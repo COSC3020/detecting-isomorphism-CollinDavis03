@@ -2,7 +2,8 @@
 //assignment. I asked it to not provide me any code becasue I wanted to attempt it on my own. 
 function are_isomorphic(graph1, graph2) { 
     //Check the number of vertices and edges match
-    if (graph1[0].length !== graph2[0].length || graph[1].length !== graph2[1]) return false; 
+    if (graph1[0].length !== graph2[0].length || graph1[1].length !== graph2[1].length) return false;
+
 
     // Quick Check: compare degree sequences
     // DS = Degree Sequence 
