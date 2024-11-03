@@ -10,16 +10,16 @@ function are_isomorphic(graph1, graph2) {
     // DS = Degree Sequence 
     const DS1 = getDS(graph1); 
     const DS2 = getDS(graph2); 
-    if (!arrayEqual(DS1, DS2)) return false; 
+    if (!arraysEqual(DS1, DS2)) return false; 
     //convert graph1 to adjacency matrix to compare to permutations of graph2 
-    const MATRIX = UGTAM(graph1); 
+    const MATRIX = UGATAM(graph1); 
     return permuteMatrix(MATRIX, graph2, 0); 
 
 }
 
 function permuteMatrix(MATRIX, graph, lo) {
     // Check if the current permutation of graph2 matches the adjacency matrix of graph1
-    if (matrixEquality(MATRIX, UGTAM(graph))) {
+    if (matrixEquality(MATRIX, UGATAM(graph))) {
         return true;
     }
 
