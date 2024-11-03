@@ -2,8 +2,9 @@
 //assignment. I asked it to not provide me any code becasue I wanted to attempt it on my own. 
 function are_isomorphic(graph1, graph2) { 
     //Check the number of vertices and edges match
-    if (graph1[0].length !== graph2[0].length || graph1[1].length !== graph2[1].length) return false;
-
+    if (graph1[0].length !== graph2[0].length || graph1[1].length !== graph2[1].length) {
+        return false;
+    }
 
     // Quick Check: compare degree sequences
     // DS = Degree Sequence 
@@ -18,18 +19,39 @@ function are_isomorphic(graph1, graph2) {
 // function to try all permutations of graph2 vertices 
 function permuteMatrix (MATRIX, graph, lo) { 
   //Check the current permutation of graph2 matches the adjacency matrix of graph1 
-    if (matrixEquality(MATRIX, UGTAM(graph))) return true; 
-
+    if (matrixEquality(MATRIX, UGTAM(graph))) {
+        return true; 
+    }
+    
     let V = graph[0]; 
-    if ( lo >= V.length - 1) return false; // If all vertices are permuted, end recursion 
+    if ( lo >= V.length - 1) {
+        return false; // If all vertices are permuted, end recursion 
+    }
+    
     //Try swapping each vertex with the current position 
     for (let i = lo; i < V.length; i++) {
-      if (i !== lo) swap(V, lo, i); //swap vertices to get a new permutation 
-      if (permuteMatrix(MATRIX, graph, lo, lo + 1)) return true; //Recurse to next position 
-      if (i !== lo) swap(V, lo, i); //revert swap 
+      if (i !== lo) { 
+          swap(V, lo, i); //swap vertices to get a new permutation 
+          graph[0] = [...V];
+      }
+        
+      if (permuteMatrix(MATRIX, graph, lo, lo + 1)) {
+          return true; //Recurse to next position
+      }
+    
+      if (i !== lo) {
+          swap(V, lo, i); //revert swap
+          graph[0] = [...V]; 
+      }
     } 
     return false; 
 } 
+
+//function to swap two elements in an array.
+function swap(arr, i, j) { 
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+} 
+
 // Function to convert an undirected graph to an adjacency matrix 
 // UGTAM = undirected Graph To Adjacent Matrix
 function UGATAM(graph) { 
@@ -63,8 +85,10 @@ function getDS(graph) {
 
 // Function to check if two matrices are equal
 function matrixEquality(m1, m2) { 
-  if (m1.length !== m2.length) return false; //Check if dimensions are the same 
-  // Check each element for equality
+  if (m1.length !== m2.length) {
+      return false; //Check if dimensions are the same 
+  }
+// Check each element for equality
   for (let i = 0; i <m1.length; i++) { 
     for (let j = 0; j < m1[i].length; j++) {
       if (m1[i][j] !== m2[i][j]) return false; 
@@ -78,10 +102,7 @@ function arraysEqual(arr1, arr2) {
   return arr1.length === arr2.length && arr1.every((val, index) => val === arr2[index]); 
 }
 
-//function to swap two elements in an array.
-function swap(arr, i, j) { 
-  [arr[i], arr[j]] = [arr[j], arr[i]];
-} 
+
 
 module.exports = { are_isomorphic }; 
 
