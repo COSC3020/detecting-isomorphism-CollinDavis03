@@ -1,4 +1,9 @@
-const { are_isomorphic } = require('./code.js'); 
+const fs = require('fs');
+const jsc = require('jsverify');
+const path = require('path');
+const { start } = require('repl');
+
+eval(fs.readFileSync('code.js')+'');
 //Need Pentagon, Star ,Empty ,Square, Hourglass, Pentacross, Complex, G, and H 
 const pentagon = [
     [0,1,2,3,4],
