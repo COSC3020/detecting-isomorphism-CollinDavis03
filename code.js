@@ -10,7 +10,9 @@ function are_isomorphic(graph1, graph2) {
     // DS = Degree Sequence 
     const DS1 = getDS(graph1); 
     const DS2 = getDS(graph2); 
-    if (!arraysEqual(DS1, DS2)) return false; 
+    if (!arraysEqual(DS1, DS2)) {
+        return false; 
+    }
     //convert graph1 to adjacency matrix to compare to permutations of graph2 
     const MATRIX = UGATAM(graph1); 
     return permuteMatrix(MATRIX, graph2, 0); 
