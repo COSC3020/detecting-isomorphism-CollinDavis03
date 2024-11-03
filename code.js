@@ -20,10 +20,10 @@ function are_isomorphic(graph1, graph2) {
 }
 
 function permuteMatrix(MATRIX, graph, lo) {
-    console.log('Current permuation being tested:', graph[0]);
+    //console.log('Current permuation being tested:', graph[0]);
     // Check if the current permutation of graph2 matches the adjacency matrix of graph1
     if (matrixEquality(MATRIX, UGATAM(graph))) {
-        console.log('Match found for permuation:', graph[0]); 
+        //console.log('Match found for permuation:', graph[0]); 
         return true;
     }
 
@@ -73,8 +73,8 @@ function UGATAM(graph) {
     adjMatrix[V.indexOf(v)][V.indexOf(u)] = 1;
   });
   return adjMatrix; 
-console.log('Testing permuation', graph[0]);
-console.log('Adjacency matrix for permutation:', UGATAM(graph));
+//console.log('Testing permuation', graph[0]);
+//console.log('Adjacency matrix for permutation:', UGATAM(graph));
 } 
 
 // Function to get a sorted degree sequence for a graph 
