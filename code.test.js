@@ -12,7 +12,7 @@ const pentagon = [
 
 const star = [
     [0,1,2,3,4], 
-    [[0,2],[2,4],[4,1],[1,3][3,0]]
+    [[0,2],[2,4],[4,1],[1,3],[3,0]]
     ];
 
 const empty = [[],[]]; 
@@ -58,7 +58,7 @@ try {
     if (!are_isomorphic(square, hourglass)) throw new Error('Test failed: square & hourglass');
     //non-simorphic
     if (are_isomorphic(square, pentagon)) throw new Error('Test failed: square & pentagon');
-    if (are_isomorphic(pentaCross, complex)) throw new Error('Test failed: pentaCross & complex');
+    if (are_isomorphic(pentacross, complex)) throw new Error('Test failed: pentaCross & complex');
     //Larger Graph Test 
     if (!are_isomorphic(G, H)) throw new Error('Test failed: G & H');
     
