@@ -23,7 +23,9 @@ function permuteMatrix(MATRIX, graph, lo) {
     //console.log('Current permuation being tested:', graph[0]);
     // Check if the current permutation of graph2 matches the adjacency matrix of graph1
     if (matrixEquality(MATRIX, UGATAM(graph))) {
-        //console.log('Match found for permuation:', graph[0]); 
+        console.log('Match found for permutation:', graph[0]);
+        console.log('MATRIX:', MATRIX);
+        console.log('Generated matrix for permutation:', UGATAM(graph)); 
         return true;
     }
 
