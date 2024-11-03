@@ -16,36 +16,38 @@ function are_isomorphic(graph1, graph2) {
     return permuteMatrix(MATRIX, graph2, 0); 
 
 }
-// function to try all permutations of graph2 vertices 
-function permuteMatrix (MATRIX, graph, lo) { 
-  //Check the current permutation of graph2 matches the adjacency matrix of graph1 
+
+function permuteMatrix(MATRIX, graph, lo) {
+    // Check if the current permutation of graph2 matches the adjacency matrix of graph1
     if (matrixEquality(MATRIX, UGTAM(graph))) {
-        return true; 
+        return true;
     }
-    
-    let V = graph[0]; 
-    if ( lo >= V.length - 1) {
-        return false; // If all vertices are permuted, end recursion 
+
+    let V = graph[0];
+    if (lo >= V.length - 1) {
+        return false; // If all vertices are permuted, end recursion
     }
-    
-    //Try swapping each vertex with the current position 
+
+    // Try swapping each vertex with the current position
     for (let i = lo; i < V.length; i++) {
-      if (i !== lo) { 
-          swap(V, lo, i); //swap vertices to get a new permutation 
-          graph[0] = [...V];
-      }
-        
-      if (permuteMatrix(MATRIX, graph, lo, lo + 1)) {
-          return true; //Recurse to next position
-      }
-    
-      if (i !== lo) {
-          swap(V, lo, i); //revert swap
-          graph[0] = [...V]; 
-      }
-    } 
-    return false; 
-} 
+        if (i !== lo) {
+            swap(V, lo, i); // Swap vertices to get a new permutation
+            graph[0] = [...V]; // Ensure a shallow copy to avoid direct mutation
+        }
+
+        // Recurse to the next position
+        if (permuteMatrix(MATRIX, graph, lo + 1)) {
+            return true;
+        }
+
+        // Revert the swap after recursion
+        if (i !== lo) {
+            swap(V, lo, i); // Revert the swap
+            graph[0] = [...V]; // Ensure the original order is restored
+        }
+    }
+    return false;
+}
 
 //function to swap two elements in an array.
 function swap(arr, i, j) { 
